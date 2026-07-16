@@ -116,19 +116,7 @@ export default function App() {
         <defs>
           <mask id="emberMask">
             <rect width="100%" height="100%" fill="white" />
-            {/* Mobile variant */}
-            <text
-              x="0"
-              y="115"
-              textLength="100%"
-              lengthAdjust="spacingAndGlyphs"
-              className="font-[900] tracking-tighter lg:hidden"
-              style={{ fontSize: '90px' }}
-              fill="black"
-            >
-              RENOV
-            </text>
-            {/* Desktop variant */}
+            {/* Cutout RENOV — desktop uniquement (doublon avec le logo sur mobile) */}
             <text
               x="0"
               y="115"
@@ -162,8 +150,8 @@ export default function App() {
 
           {/* Content stack */}
           <div className="relative z-20 flex flex-col h-full pt-[12vh] lg:pt-[8vh] px-6 md:px-12">
-            {/* Spacer reserving the RENOV wordmark zone */}
-            <div className="h-[20vh] lg:h-[25vh] shrink-0" />
+            {/* Spacer reserving the RENOV wordmark zone (desktop only) */}
+            <div className="h-0 lg:h-[25vh] shrink-0" />
 
             {/* Vertical line */}
             <div className="flex-grow flex flex-col pt-4 min-h-[100px]">

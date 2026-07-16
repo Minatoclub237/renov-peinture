@@ -155,6 +155,19 @@ export default function AtoutsSection() {
   // Vidéo de fond scrubbée : le scroll de la section pilote currentTime
   // (comportement du template d'origine), avec lissage
   useEffect(() => {
+    // Déblocage mobile (iOS) : sans un play() muet suivi d'un pause(),
+    // Safari ne décode aucune frame et le scrub reste invisible
+    const video = videoRef.current
+    if (video) {
+      video.muted = true
+      const p = video.play()
+      if (p)
+        p.then(() => {
+          video.pause()
+          video.currentTime = 0
+        }).catch(() => {})
+    }
+
     let raf = 0
     let smooth = 0
 
@@ -215,6 +228,7 @@ export default function AtoutsSection() {
         <video
           ref={videoRef}
           src="/media/atouts-bg.mp4"
+          poster="/media/atouts-poster.webp"
           muted
           playsInline
           preload="auto"
