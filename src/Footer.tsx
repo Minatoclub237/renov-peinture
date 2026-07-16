@@ -1,5 +1,5 @@
-import { MapPin, Phone, Star, Navigation2 } from 'lucide-react'
-import { MAPS_URL } from './ContactSection'
+import { Mail, MapPin, Phone, Star, Navigation2 } from 'lucide-react'
+import { CONTACT_EMAIL, MAPS_URL } from './ContactSection'
 
 const NAV = [
   { label: 'À propos', href: '#atouts' },
@@ -38,9 +38,9 @@ export default function Footer() {
               </span>
             </button>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs">
-              Peintre en bâtiment à Amiens. Peinture, rénovation, ravalement de
-              façade, Placo, maçonnerie générale et revêtements de sol, pour
-              particuliers et professionnels.
+              Peintre en bâtiment à Port-de-Bouc. Peinture, rénovation,
+              ravalement de façade, Placo, maçonnerie générale et revêtements
+              de sol, pour particuliers et professionnels.
             </p>
             <div className="flex items-center gap-2">
               <span className="text-sm font-semibold">5,0</span>
@@ -97,17 +97,24 @@ export default function Footer() {
             <div className="flex items-start gap-2.5 text-sm text-white/70">
               <MapPin size={15} className="text-[#FF5C35] mt-0.5 shrink-0" />
               <span>
-                1 Rue du Cabaret de la Belle Femme
+                19 rue Jean Cocteau
                 <br />
-                80090 Amiens, France
+                13110 Port-de-Bouc, France
               </span>
             </div>
             <a
-              href="tel:+33645893156"
+              href="tel:+33662903358"
               className="flex items-center gap-2.5 text-sm text-white/70 hover:text-white transition-colors"
             >
               <Phone size={15} className="text-[#FF5C35] shrink-0" />
-              +33 6 45 89 31 56
+              06 62 90 33 58
+            </a>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="flex items-center gap-2.5 text-sm text-white/70 hover:text-white transition-colors"
+            >
+              <Mail size={15} className="text-[#FF5C35] shrink-0" />
+              {CONTACT_EMAIL}
             </a>
             <a
               href={MAPS_URL}
@@ -132,7 +139,7 @@ export default function Footer() {
           <span>
             © {new Date().getFullYear()} Renov Peintures — Tous droits réservés
           </span>
-          <span>Peintre en bâtiment · Amiens (80)</span>
+          <span>Peintre en bâtiment · Port-de-Bouc (13)</span>
         </div>
       </div>
     </footer>

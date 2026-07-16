@@ -37,7 +37,7 @@ function BeforeAfter({
     <div className="shrink-0 w-[85vw] sm:w-[62vw] lg:w-[44vw]">
       <div
         ref={frameRef}
-        className="relative aspect-[16/10] rounded-3xl overflow-hidden bg-black select-none cursor-ew-resize"
+        className="relative aspect-[16/10] max-h-[46dvh] w-full rounded-3xl overflow-hidden bg-black select-none cursor-ew-resize"
         style={{ touchAction: 'pan-y' }}
         onPointerDown={(e) => {
           dragging.current = true
@@ -95,11 +95,11 @@ function BeforeAfter({
         </div>
       </div>
 
-      <div className="mt-5 flex items-baseline gap-4">
+      <div className="mt-4 flex items-baseline gap-4">
         <span className="font-mono text-xs text-white/40 shrink-0">
           0{index + 1}
         </span>
-        <h3 className="font-display font-semibold text-xl md:text-2xl leading-tight text-white">
+        <h3 className="font-display font-semibold text-lg md:text-2xl leading-tight text-white">
           {title}
         </h3>
       </div>
@@ -169,14 +169,14 @@ export default function PrestationsSection() {
       className="relative z-20 -mt-[100dvh] bg-[#101010] text-white rounded-t-[2.5rem] shadow-[0_-40px_80px_rgba(0,0,0,0.55)]"
     >
       <div ref={trackRef} className="relative h-[420vh]">
-        <div className="sticky top-0 h-dvh overflow-hidden flex flex-col justify-center gap-8 md:gap-12 py-10">
+        <div className="sticky top-0 h-dvh overflow-hidden flex flex-col justify-center gap-5 md:gap-7 py-6">
           {/* En-tête */}
           <div className="px-6 md:px-12 flex items-end justify-between">
             <div>
               <p className="font-mono text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-3">
                 Renov Peinture
               </p>
-              <h2 className="font-display font-bold text-[clamp(44px,7vw,96px)] leading-[0.95] tracking-tight">
+              <h2 className="font-display font-bold text-[clamp(36px,5.5vw,72px)] leading-[0.95] tracking-tight">
                 Prestations
               </h2>
             </div>

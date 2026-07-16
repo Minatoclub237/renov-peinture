@@ -180,7 +180,7 @@ export default function App() {
               </h1>
               <div className="flex items-center gap-5 pt-2">
                 <a
-                  href="tel:+33645893156"
+                  href="tel:+33662903358"
                   className="bg-gray-900 text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-gray-700 transition-colors"
                 >
                   Réservation

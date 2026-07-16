@@ -10,6 +10,7 @@ import {
 import {
   ArrowRight,
   Check,
+  Mail,
   MapPin,
   Navigation2,
   Phone,
@@ -17,7 +18,8 @@ import {
 } from 'lucide-react'
 
 export const MAPS_URL =
-  'https://www.google.com/maps/dir/?api=1&destination=1+Rue+du+Cabaret+de+la+Belle+Femme+80090+Amiens+France'
+  'https://www.google.com/maps/dir/?api=1&destination=19+rue+Jean+Cocteau+13110+Port-de-Bouc+France'
+export const CONTACT_EMAIL = 'renovpeinture13@gmail.com'
 
 const PROJETS = [
   'Peinture intérieure / extérieure',
@@ -44,8 +46,8 @@ function Label({ children, htmlFor }: { children: string; htmlFor: string }) {
 }
 
 function LocationMap({
-  location = 'Amiens, France',
-  coordinates = '49.8942° N, 2.2957° E',
+  location = 'Port-de-Bouc, France',
+  coordinates = '43.4058° N, 4.9886° E',
 }: {
   location?: string
   coordinates?: string
@@ -406,7 +408,7 @@ export default function ContactSection() {
               <span className="text-sm text-gray-500">1 avis Google</span>
             </div>
             <p className="text-gray-500 mt-1">
-              Peintre en bâtiment à Amiens, France
+              Peintre en bâtiment à Port-de-Bouc, France
             </p>
           </div>
 
@@ -415,15 +417,22 @@ export default function ContactSection() {
             <div className="flex items-start gap-3">
               <MapPin size={18} className="text-[#FF5C35] mt-0.5 shrink-0" />
               <span className="text-gray-700">
-                1 Rue du Cabaret de la Belle Femme, 80090 Amiens, France
+                19 rue Jean Cocteau, 13110 Port-de-Bouc, France
               </span>
             </div>
             <a
-              href="tel:+33645893156"
+              href="tel:+33662903358"
               className="group flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors"
             >
               <Phone size={18} className="text-[#FF5C35] shrink-0" />
-              <span className="font-semibold">+33 6 45 89 31 56</span>
+              <span className="font-semibold">06 62 90 33 58</span>
+            </a>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="group flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              <Mail size={18} className="text-[#FF5C35] shrink-0" />
+              <span>{CONTACT_EMAIL}</span>
             </a>
           </div>
 
@@ -458,6 +467,14 @@ export default function ContactSection() {
         <form
           onSubmit={(e) => {
             e.preventDefault()
+            const data = new FormData(e.currentTarget)
+            const subject = encodeURIComponent(
+              `Demande de devis — ${data.get('projet') || 'Projet'}`
+            )
+            const body = encodeURIComponent(
+              `Nom : ${data.get('nom')}\nTéléphone : ${data.get('tel')}\nEmail : ${data.get('email') || '—'}\nType de projet : ${data.get('projet') || '—'}\n\n${data.get('message')}`
+            )
+            window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
             setSent(true)
           }}
           className="flex flex-col gap-8 bg-white/75 backdrop-blur-md border border-white/60 rounded-3xl p-7 lg:p-10 shadow-xl self-start w-full"
@@ -540,8 +557,8 @@ export default function ContactSection() {
                 <span className="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center">
                   <Check size={16} />
                 </span>
-                Merci ! Votre demande est bien notée — nous vous rappelons
-                rapidement.
+                Merci ! Votre messagerie s’ouvre pour finaliser l’envoi —
+                sinon écrivez-nous à {CONTACT_EMAIL}.
               </motion.p>
             ) : (
               <motion.button
